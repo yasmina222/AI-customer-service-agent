@@ -1,0 +1,3 @@
+query,sentiment,confidence,resolution
+"Where is my order?","neutral",0.85,"Fine-Tuned Model"
+"Do you have any discounts?","positive",0.92,"Knowledge Base"

@@ -16,7 +16,7 @@ KNOWLEDGE_BASE_PATH = "/Users/yasminalarouci/Chatbot/knowledge_base.csv"
 KB_EMBEDDINGS_PATH = "/Users/yasminalarouci/Chatbot/knowledge_embeddings.npy"
 SYNTHETIC_DATASET_PATH = "/Users/yasminalarouci/Chatbot/synthetic_dataset.csv"
 SYNTHETIC_DATASET_EMBEDDINGS_PATH = "/Users/yasminalarouci/Chatbot/synthetic_embeddings.npy"
-FEEDBACK_LOG_PATH = "/Users/yasminalarouci/Chatbot/feedback_log.csv"
+FEEDBACK_LOG_PATH = "feedback_log.csv"
 ESCALATION_LOG_PATH = "/Users/yasminalarouci/Chatbot/escalation_log.txt"
 
 
