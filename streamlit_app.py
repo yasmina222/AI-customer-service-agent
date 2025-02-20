@@ -7,8 +7,8 @@ from datetime import datetime
 from agent import handle_user_query, log_escalation, append_to_feedback_log, analyze_sentiment
 import plotly.express as px  
 
-ESCALATION_CSV_PATH = "/Users/yasminalarouci/Chatbot/escalation_log.csv"
-FEEDBACK_LOG_PATH = "/Users/yasminalarouci/Chatbot/feedback_log.csv"
+ESCALATION_CSV_PATH = "escalation_log.txt"
+FEEDBACK_LOG_PATH = "feedback_log.csv"
 
 # Store a negative complaint (for escalation follow-up)
 if "last_complaint" not in st.session_state:

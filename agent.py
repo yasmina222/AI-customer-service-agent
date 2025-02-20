@@ -12,12 +12,15 @@ import re
 
 
 # Paths to data files
-KNOWLEDGE_BASE_PATH = "/Users/yasminalarouci/Chatbot/knowledge_base.csv"
-KB_EMBEDDINGS_PATH = "/Users/yasminalarouci/Chatbot/knowledge_embeddings.npy"
-SYNTHETIC_DATASET_PATH = "/Users/yasminalarouci/Chatbot/synthetic_dataset.csv"
-SYNTHETIC_DATASET_EMBEDDINGS_PATH = "/Users/yasminalarouci/Chatbot/synthetic_embeddings.npy"
+KNOWLEDGE_BASE_PATH = "knowledge_base.csv"
+KB_EMBEDDINGS_PATH = "knowledge_embeddings.npy"
+SYNTHETIC_DATASET_PATH = "synthetic_dataset.csv"
+SYNTHETIC_DATASET_EMBEDDINGS_PATH = "synthetic_embeddings.npy"
 FEEDBACK_LOG_PATH = "feedback_log.csv"
-ESCALATION_LOG_PATH = "/Users/yasminalarouci/Chatbot/escalation_log.txt"
+ESCALATION_LOG_PATH = "escalation_log.txt"
+SENTIMENT_LOG_PATH = "sentiment_log.csv"
+
+
 
 
 # No need to pass api_key, Render will handle it
@@ -119,7 +122,8 @@ def analyze_sentiment(text, threshold=0.7):
         sentiment_label = "NEUTRAL"  
 
 
-    with open("sentiment_log.csv", mode="a", newline="") as file:
+    with open(SENTIMENT_LOG_PATH, mode="a", newline="") as file:
+
         writer = csv.writer(file)
         file_exists = os.path.isfile("sentiment_log.csv")
         if not file_exists:
@@ -128,10 +132,11 @@ def analyze_sentiment(text, threshold=0.7):
 
     return sentiment_label, confidence_score
 
-#Log escalated cases into a CSV file
+#Log escalated cases into a CSV 
 def log_escalation(user_input, sentiment, confidence, escalation_reason="High-confidence negative sentiment"):
     
-    ESCALATION_CSV_PATH = "/Users/yasminalarouci/Chatbot/escalation_log.csv"
+    ESCALATION_CSV_PATH = ESCALATION_LOG_PATH
+
     escalation_data = {
         "User Input": user_input,
         "Sentiment": sentiment,

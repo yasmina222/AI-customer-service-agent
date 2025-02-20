@@ -1,3 +1,155 @@
-query,sentiment,confidence,resolution
-"Where is my order?","neutral",0.85,"Fine-Tuned Model"
-"Do you have any discounts?","positive",0.92,"Knowledge Base"
+User Input,Sentiment,Confidence,Resolution
+this service is terrible,NEGATIVE,0.98,Escalated to human agent
+i ordered the wrong product,NEGATIVE,0.93,Escalated to human agent
+i am truely not happy,NEGATIVE,0.97,Escalated to human agent
+this is terrible,NEGATIVE,0.97,Escalated to human agent
+this service is terrible,NEGATIVE,0.98,Escalated to human agent
+i'm not happy,NEGATIVE,0.96,Escalated to human agent
+i will never order from you again,NEGATIVE,0.94,Escalated to human agent
+im not happy,NEGATIVE,0.95,Escalated to human agent
+"can you help me pick a perfume for my brother, Dior Sauvage or Versace Eros are great masculine options.",POSITIVE,0.89,GPT-4 Fallback
+I need to talk to someone else!,NEUTRAL,0.56,GPT-4 Fallback
+I’m tired of repeating myself! I need to talk to someone who can actually help.,NEGATIVE,0.77,GPT-4 Fallback
+How do I exchange an incorrect item I received,NEUTRAL,0.57,GPT-4 Fallback
+Can you recommend an oud-based perfume,NEUTRAL,0.89,GPT-4 Fallback
+How long do I have to return my order?,NEUTRAL,0.57,GPT-4 Fallback
+How long do I have to return my order?,NEUTRAL,0.57,GPT-4 Fallback
+How long do I have to return my order?,NEUTRAL,0.57,GPT-4 Fallback
+How long do I have to return my order?,NEUTRAL,0.57,GPT-4 Fallback
+How long do I have to return my order?,NEUTRAL,0.57,GPT-4 Fallback
+my order is late,NEGATIVE,0.9,GPT-4 Fallback
+my order is late,NEGATIVE,0.9,GPT-4 Fallback
+MY ORDER IS LATE,NEGATIVE,0.76,GPT-4 Fallback
+my order is late,NEGATIVE,0.9,GPT-4 Fallback
+where is elon usk,NEUTRAL,0.8,GPT-4 Fallback
+where is elon musk,NEUTRAL,0.84,GPT-4 Fallback
+where is trump,NEUTRAL,0.6,GPT-4 Fallback
+where is miceal jordan?,NEUTRAL,0.81,GPT-4 Fallback
+where is elon musk,NEUTRAL,0.84,GPT-4 Fallback
+how many homeless people are there,NEUTRAL,0.58,GPT-4 Fallback
+where is brittany spears,NEUTRAL,0.86,GPT-4 Fallback
+what year was you born in,NEUTRAL,0.81,GPT-4 Fallback
+what does medina mean,NEUTRAL,0.78,GPT-4 Fallback
+where is my order,NEUTRAL,0.58,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+i need a refund,NEUTRAL,0.77,KB Answer
+what is the best perfume for summer,NEUTRAL,0.61,KB Answer
+how long does a refund take,NEUTRAL,0.79,KB Answer
+where is elon musk,NEUTRAL,0.84,GPT-4 Fallback
+where is my refund,NEUTRAL,0.58,KB Answer
+what is the best perfume for summer,NEUTRAL,0.61,KB Answer
+Can I request a sample before purchasing a full-sized perfume?,NEUTRAL,0.9,KB Answer
+How do I store my perfumes properly?,NEUTRAL,0.69,KB Answer
+i need to talk to someone else now,NEUTRAL,0.52,KB Answer
+I sent my order back but haven’t received a refund.,NEUTRAL,0.78,KB Answer
+i am going to write a bad review,NEGATIVE,0.88,KB Answer
+what is the best perfume for men,NEUTRAL,0.61,KB Answer
+CAN YOU RECOMMEND A PERFUME FOR MY MUM,NEUTRAL,0.83,KB Answer
+CAN YOU RECOMMEND A PERFUME FOR MY MUM,NEUTRAL,0.83,KB Answer
+07911111111,NEUTRAL,0.69,KB Answer
+wheres my order,NEUTRAL,0.7,KB Answer
+wheres my order,NEUTRAL,0.7,KB Answer
+i love my perfume,POSITIVE,0.98,KB Answer
+what is the best perfume for summer,NEUTRAL,0.61,KB Answer
+what is the best perfume for summer,NEUTRAL,0.61,KB Answer
+can you recommend a perfume for men,NEUTRAL,0.87,KB Answer
+i need a perfume for summer,NEUTRAL,0.59,KB Answer
+i need a perfume for summer,NEUTRAL,0.59,KB Answer
+i need a perfume for men,NEUTRAL,0.77,KB Answer
+i need a perfume for a man,NEUTRAL,0.77,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+How do I find the right scent for me?,NEUTRAL,0.81,KB Answer
+What should I do if my order arrives damaged?,NEUTRAL,0.57,KB Answer
+How do I exchange my product?,NEUTRAL,0.79,KB Answer
+Do you have a loyalty program?,NEUTRAL,0.86,KB Answer
+i'm looking for chanel no. 5,NEUTRAL,0.87,KB Answer
+what oud perfumes do you have,NEUTRAL,0.81,KB Answer
+how long does a perfume last for,NEUTRAL,0.84,KB Answer
+where do i store my perfume,NEUTRAL,0.77,KB Answer
+is my perfume out of stock?,NEUTRAL,0.54,KB Answer
+i want a refund,NEUTRAL,0.69,KB Answer
+i need to talk to someone now!!!,NEUTRAL,0.63,KB Answer
+whats the best summer scents,NEUTRAL,0.84,KB Answer
+Give me a discount code,NEUTRAL,0.68,KB Answer
+How do I exchange my product?,NEUTRAL,0.79,KB Answer
+Are your products cruelty-free?,NEUTRAL,0.61,KB Answer
+hi can you tell me the top notes of chanel no 5,NEUTRAL,0.91,KB Answer
+Do you ship internationally?,NEUTRAL,0.9,KB Answer
+Do you offer discounts for bulk orders?,NEUTRAL,0.9,KB Answer
+How do I store my perfumes properly?,NEUTRAL,0.69,KB Answer
+What happens if I cancel my subscription?,NEUTRAL,0.61,KB Answer
+I received an allergic reaction to your product What should I do?,NEGATIVE,0.9,KB Answer
+Broken perfume bottle delivered,NEUTRAL,0.73,KB Answer
+Can you recommend a fresh scent for summer,NEUTRAL,0.65,KB Answer
+What promotions are currently available,NEUTRAL,0.9,KB Answer
+What prcan you help me pick a perfume for my girlfriend,NEUTRAL,0.84,KB Answer
+can you help me pick a perfume for my friend,NEUTRAL,0.67,KB Answer
+could you recommend a classic perfume,NEUTRAL,0.8,KB Answer
+is ombre nomade stock right now,NEUTRAL,0.83,KB Answer
+is dior long lasting,NEUTRAL,0.78,KB Answer
+i need advice,NEUTRAL,0.55,KB Answer
+i need advice,NEUTRAL,0.55,KB Answer
+i need advice,NEUTRAL,0.55,KB Answer
+i need the best perfume in the world,NEUTRAL,0.82,KB Answer
+where is my,NEUTRAL,0.58,KB Answer
+she loves floral scents,POSITIVE,0.96,KB Answer
+how can i replace my perfume,NEUTRAL,0.53,KB Answer
+can you suggest a holiday perfume,NEUTRAL,0.84,KB Answer
+I need to speak to someobdy else urgently now!,NEUTRAL,0.69,KB Answer
+What’s the longevity of Tom Ford Black Orchid,NEUTRAL,0.93,KB Answer
+What’s the longevity of Ombre Nomade,NEUTRAL,0.91,KB Answer
+Ship to UAE?,NEUTRAL,0.91,KB Answer
+Can I send a gift directly to someone else?,NEUTRAL,0.86,KB Answer
+How do I contact customer support?,NEUTRAL,0.58,KB Answer
+How can I test a perfume’s longevity?,NEUTRAL,0.69,KB Answer
+Can I return a product if I’ve removed the packaging?,NEUTRAL,0.7,KB Answer
+Do I have to pay to return my order?,NEUTRAL,0.59,KB Answer
+What ingredients are used in your perfumes?,NEUTRAL,0.89,KB Answer
+Are your perfumes authentic?,NEUTRAL,0.87,KB Answer
+what is the weather right now?,NEUTRAL,0.87,GPT-4 Fallback
+whats up,NEUTRAL,0.64,KB Answer
+hey,NEUTRAL,0.53,KB Answer
+hi,NEUTRAL,0.55,KB Answer
+goodbye,NEUTRAL,0.53,KB Answer
+go away,NEUTRAL,0.57,KB Answer
+I'm happy,POSITIVE,0.97,KB Answer
+i need a wedding scent,NEUTRAL,0.72,KB Answer
+can you help me pick a perfume for my son,NEUTRAL,0.75,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+wheres my order,NEUTRAL,0.7,KB Answer
+what is the best perfume for a wedding,NEUTRAL,0.63,KB Answer
+what is the best perfume for my wife,NEUTRAL,0.53,KB Answer
+i need a perfume for my husband what would you recommend,NEUTRAL,0.84,KB Answer
+i need a perfume for my wife what would you recommend,NEUTRAL,0.85,KB Answer
+i need a oud  perfume,NEUTRAL,0.69,KB Answer
+i need a floral perfume,NEUTRAL,0.6,KB Answer
+i need a floral perfume what can you recommend,NEUTRAL,0.74,KB Answer
+i need a floral perfume what can you recommend,NEUTRAL,0.74,KB Answer
+can you help me pick a perfume i like,NEUTRAL,0.55,KB Answer
+whats a good perfume to impress a women,NEUTRAL,0.74,KB Answer
+i need to talk to someone now,NEUTRAL,0.71,KB Answer
+the perfume i want is not in stock,NEUTRAL,0.46,KB Answer
+do you have any discount codes,NEUTRAL,0.82,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+I need a discount code,NEUTRAL,0.75,KB Answer
+I want to go to Japan,POSITIVE,0.85,KB Answer
+Where is Elon Musk,NEUTRAL,0.82,Fine-Tuned Model
+where is my order,NEUTRAL,0.58,KB Answer
+i need a discount coupon,NEUTRAL,0.7,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
+i need a wedding scent ,NEUTRAL,0.68,KB Answer
+i need a wedding scent ,NEUTRAL,0.68,KB Answer
+i like oud perfumes could you recommend one?,POSITIVE,0.71,KB Answer
+what do you think of baccarat rouge perfume,NEUTRAL,0.89,KB Answer
+what do you think of the perfume delina by perfums de marley,NEUTRAL,0.9,Fine-Tuned Model
+what do you think of elon musk,NEUTRAL,0.89,Fine-Tuned Model
+what is the weather in london tomorrow,NEUTRAL,0.91,Fine-Tuned Model
+where is my order,NEUTRAL,0.58,KB Answer
+what perfume would you recommend for my boyfriend,NEUTRAL,0.9,KB Answer
+when is Chanel no 5 coming back in stoc,NEUTRAL,0.91,KB Answer
+ok thank you,POSITIVE,0.78,Fine-Tuned Model
+ok thank you,POSITIVE,0.78,Fine-Tuned Model
+where is my order,NEUTRAL,0.58,KB Answer
+where is my order,NEUTRAL,0.58,KB Answer
