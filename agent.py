@@ -23,7 +23,7 @@ SENTIMENT_LOG_PATH = "sentiment_log.csv"
 
 
 
-# No need to pass api_key, Render will handle it
+#No need to add api_key, uploaded onto Render as variable instead
 client = OpenAI()  
 
 
@@ -31,11 +31,11 @@ FINE_TUNED_MODEL = "ft:gpt-3.5-turbo-0125:personal::AzsqUdO7"
 
 EMBEDDING_MODEL = "text-embedding-3-small"  
 
-# Sentiment analysis model
+#Sentiment analysis model
 SENTIMENT_MODEL_NAME = "cardiffnlp/twitter-roberta-base-sentiment"
 sentiment_model = pipeline("text-classification", model=SENTIMENT_MODEL_NAME)
 
-# Create and save OpenAI embeddings as .npy file.
+#Create and save OpenAI embeddings as .npy file.
 def embed_data(input_path, output_path, column_name, force_regenerate=False):
     
     if os.path.exists(output_path) and not force_regenerate:
@@ -47,7 +47,7 @@ def embed_data(input_path, output_path, column_name, force_regenerate=False):
         data = pd.read_csv(input_path)
         texts = data[column_name].tolist()
         
-        # Process in batches to avoid API timeouts
+        #Process in batches to avoid API timeouts
         batch_size = 100
         embeddings = []
         
@@ -79,21 +79,21 @@ def validate_embeddings(data_path, embeddings_path):
     return True
 
 def semantic_search(user_input, embeddings_path, data_path, threshold=0.7):
-   # Find the best matching answer from the knowledge base
+   #Find the best matching answer from the knowledge base
     try:
         data = pd.read_csv(data_path)
         
-        # Check for an exact match 
+        #Check for an exact match 
         exact_match = data[data['question'].str.lower() == user_input.lower()]
         if not exact_match.empty:
             return exact_match.iloc[0]['answer']
         
-        # Embeddings for semantic search & user query
+        #Embeddings for semantic search & user query
         embeddings = np.load(embeddings_path)
         response = client.embeddings.create(model=EMBEDDING_MODEL, input=user_input)
         user_embedding = np.array(response.data[0].embedding)
         
-        # Calculate cosine similarities 
+        #Calculate cosine similarities 
         similarities = cosine_similarity([user_embedding], embeddings)[0]
         max_similarity = np.max(similarities)
         best_index = np.argmax(similarities)
@@ -141,7 +141,7 @@ def log_escalation(user_input, sentiment, confidence, escalation_reason="High-co
         "User Input": user_input,
         "Sentiment": sentiment,
         "Confidence": round(confidence, 2),
-        "Escalation Reason": escalation_reason,
+        "Escalation Reason": escalation_reason,     
         "Timestamp": pd.Timestamp.now()
     }
     file_exists = os.path.isfile(ESCALATION_CSV_PATH)
@@ -151,18 +151,7 @@ def log_escalation(user_input, sentiment, confidence, escalation_reason="High-co
             writer.writeheader()
         writer.writerow(escalation_data)
 
-
-    file_exists = os.path.isfile(ESCALATION_CSV_PATH)
-    with open(ESCALATION_CSV_PATH, mode="a", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=escalation_data.keys())
-
-        
-        if not file_exists:
-            writer.writeheader()
-        
-        writer.writerow(escalation_data)
-
-# Save to feedback log to improve future responses.
+#Save to feedback log to improve future responses.
 def append_to_feedback_log(user_input, sentiment, confidence, resolution):
     file_exists = os.path.isfile(FEEDBACK_LOG_PATH)
 
@@ -172,7 +161,7 @@ def append_to_feedback_log(user_input, sentiment, confidence, resolution):
             writer.writerow(["User Input", "Sentiment", "Confidence", "Resolution"])
         writer.writerow([user_input, sentiment, round(confidence, 2), resolution])
 
-# Generate a response with fine-tuned model & set up fall back
+#Generate a response with fine-tuned model & set up fall back
 def generate_finetuned_response(user_input, sentiment):  
     system_message = {
         "POSITIVE": "You are an enthusiastic and cheerful assistant.",
@@ -191,7 +180,7 @@ def generate_finetuned_response(user_input, sentiment):
         return response.choices[0].message.content
     except Exception as e:
         try:
-            # Fallback to GPT-4 if fine-tuned model fails
+            #Fallback to GPT-4 if fine-tuned model fails
             response = client.chat.completions.create(
                 model="gpt-4",
                 messages=messages

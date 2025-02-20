@@ -30,7 +30,7 @@ st.markdown("""
          padding: 2rem;
     }
     .stButton > button {
-         background-color: #007BFF !important;  /* Blue button */
+         background-color: #007BFF ;  /* Blue button */
          color: #FFFFFF !important;  /* White text */
          border: none;
          padding: 0.5rem 1rem;
@@ -38,6 +38,7 @@ st.markdown("""
          font-size: 16px;
          font-weight: bold;
          cursor: pointer;
+            
     }
     .stButton > button:hover {
          background-color: #0056b3 !important;
@@ -71,7 +72,7 @@ with tab1:
             if email_match:
                 user_email = email_match.group(0)
                 if st.session_state.last_complaint:
-                    update_escalation_log(st.session_state.last_complaint, f"Follow-up with Email: {user_email}")
+                    log_escalation(st.session_state.last_complaint, "NEGATIVE", 0.95, f"Follow-up with Email: {user_email}")
                     st.success("Thank you. Someone will be in touch within the next 24 hours to resolve your issue.")
                     st.session_state.last_complaint = None
                 else:
