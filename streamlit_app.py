@@ -35,27 +35,36 @@ st.markdown(f"""
         background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
     }}
     
-    .stMarkdown h1 {{
-        color: #ffffff !important;
-        font-size: 2.5rem !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    /* Changed input text color to black */
+    .stTextInput input {{
+        background: rgba(255,255,255,0.1) !important;
+        border: 1px solid #4a40a3 !important;
+        border-radius: 10px !important;
+        color: #000000 !important;  /* BLACK TEXT */
+        padding: 12px !important;
     }}
     
+    /* Placeholder text styling */
+    .stTextInput input::placeholder {{
+        color: #666666 !important;
+        opacity: 1 !important;
+    }}
+    
+    /* Brighter button for better contrast */
     .stButton>button {{
-        background: #6c5ce7 !important;
+        background: #7c6cf0 !important;
         color: white !important;
         border-radius: 12px !important;
         padding: 12px 24px !important;
         border: none !important;
         font-weight: 600 !important;
     }}
-    
-    .stTextInput input {{
-        background: rgba(255,255,255,0.1) !important;
-        border: 1px solid #4a40a3 !important;
-        border-radius: 10px !important;
-        color: white !important;
-        padding: 12px !important;
+
+    /* Keep the rest of your existing CSS below... */
+    .stMarkdown h1 {{
+        color: #ffffff !important;
+        font-size: 2.5rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }}
     
     .stTabs [data-baseweb="tab-list"] {{
@@ -98,7 +107,7 @@ st.markdown(f"""
 #Image
 st.markdown("""
     <div class="ai-agent-header">
-        <img src="https://img.icons8.com/3d-fluency/500/robot.png" class="ai-agent-image">
+        <img src="https://img.icons8.com/?size=100&id=qfBYZBppgo9X&format=png&color=000000" class="ai-agent-image">
         <div>
             <h1>Sentiment Analysis AI Agent</h1>
             <p style="font-size: 1.1rem; color: #ffffff; max-width: 800px;">
