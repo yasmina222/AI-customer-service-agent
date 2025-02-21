@@ -83,7 +83,7 @@ st.markdown(f"""
     }}
     
     .stDataFrame {{
-        background: rgba(255,255,255,0.05) !important;
+        background: rgba(255,255,255,0.15) !important;
         border-radius: 12px !important;
         border: 1px solid #4a40a3 !important;
     }}
@@ -190,7 +190,8 @@ with tab2:
     if os.path.exists(ESCALATION_CSV_PATH):
         try:
             df_escalation = pd.read_csv(ESCALATION_CSV_PATH, quoting=csv.QUOTE_ALL)
-            st.dataframe(df_escalation.style.highlight_max(axis=0, color='#2a255e'))
+            # Removed highlight_max and simplified display
+            st.dataframe(df_escalation)
             st.download_button("Export Escalation Log", df_escalation.to_csv(index=False, quoting=csv.QUOTE_ALL), "escalation_log.csv")
         except Exception as e:
             st.error(f"Error loading escalation log: {e}")
@@ -202,7 +203,8 @@ with tab3:
     if os.path.exists(FEEDBACK_LOG_PATH):
         try:
             df_feedback = pd.read_csv(FEEDBACK_LOG_PATH)
-            st.dataframe(df_feedback.style.background_gradient(cmap='Purples'))
+            # Removed background_gradient to eliminate matplotlib dependency
+            st.dataframe(df_feedback)
             st.download_button("Export Feedback Log", df_feedback.to_csv(index=False), "feedback_log.csv")
         except Exception as e:
             st.error(f"Error loading feedback log: {e}")
