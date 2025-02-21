@@ -10,24 +10,25 @@ import plotly.express as px
 ESCALATION_CSV_PATH = "escalation_log.txt"
 FEEDBACK_LOG_PATH = "feedback_log.csv"
 
-#Store negative complaint for escalation
+#Negative complaint recorded for escalation
 if "last_complaint" not in st.session_state:
     st.session_state.last_complaint = None
 
-#Page settings
+# Page settings
 st.set_page_config(
     page_title="AI Sentiment Analysis Customer Service Agent",
     layout="wide",
     page_icon="🤖"
 )
 
-# Custom CSS for modern theme
+#Custom CSS for a modern theme
 st.markdown(f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
     
     * {{
         font-family: 'Inter', sans-serif !important;
+        color: #ffffff !important;
     }}
     
     .stApp {{
@@ -47,13 +48,6 @@ st.markdown(f"""
         padding: 12px 24px !important;
         border: none !important;
         font-weight: 600 !important;
-        transition: all 0.3s ease !important;
-    }}
-    
-    .stButton>button:hover {{
-        background: #5b4bc4 !important;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(108,92,231,0.4);
     }}
     
     .stTextInput input {{
@@ -73,7 +67,6 @@ st.markdown(f"""
         border-radius: 8px !important;
         padding: 12px 24px !important;
         margin: 0 4px !important;
-        transition: all 0.3s ease !important;
     }}
     
     .stTabs [aria-selected="true"] {{
@@ -102,20 +95,20 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-#AI Agent Image
+#Image
 st.markdown("""
     <div class="ai-agent-header">
         <img src="https://img.icons8.com/3d-fluency/500/robot.png" class="ai-agent-image">
         <div>
             <h1>Sentiment Analysis AI Agent</h1>
-            <p style="font-size: 1.1rem; color: #d0d0ff; max-width: 800px;">
+            <p style="font-size: 1.1rem; color: #ffffff; max-width: 800px;">
                 Your 24/7 AI Customer Service Solution for Enhanced Customer Experience and Reduced Internal Workload
             </p>
         </div>
     </div>
 """, unsafe_allow_html=True)
 
-# Benefits Section
+#Benefits Section
 col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
@@ -123,7 +116,7 @@ with col1:
     - **Instant Response** to common customer inquiries
     - **Urgent Escalation** to human agents through sentiment analysis scoring
     - **24/7 Availability** with consistent service quality
-    - **High Priorty** cases prioritised for enhanced customer experience and company reputation.  
+    - **High Priority** cases prioritised for enhanced customer experience and company reputation.  
     - **Reduced Workload** for human agents by handling 70%+ 
     """)
 
@@ -136,7 +129,7 @@ with col2:
     - Continuous learning from customer interactions
     """)
 
-# Example Queries
+#Example Queries
 st.markdown("""
     ### 💡 This demo has been tailored for a online perfume store. Test it for yourself and enter a perfume-related query!!
     - When is my perfume coming back into stock?
@@ -147,13 +140,13 @@ st.markdown("""
     - My order arrived broken
 """)
 
-# Main Tabs
+#Main Tabs
 tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat Interface", "📈 Escalations", "📋 Feedback Log", "📊 Analytics"])
 
 with tab1:
     with st.form(key="query_form"):
         user_input = st.text_input("Enter your query here:", placeholder="Type your perfume-related question...")
-        submit_button = st.form_submit_button(label="Analyze Query")
+        submit_button = st.form_submit_button(label="Submit Query")
         
         if submit_button and user_input:
             email_match = re.search(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", user_input)
@@ -172,9 +165,9 @@ with tab1:
                 
                 st.markdown(f"""
                     <div style="background: rgba(108,92,231,0.15); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
-                        <h4 style="color: #b1a8ff; margin-bottom: 0.5rem;">AI Response</h4>
-                        <p style="margin-bottom: 0;">{response}</p>
-                        <div style="margin-top: 1rem; color: #d0d0ff;">
+                        <h4 style="color: #ffffff; margin-bottom: 0.5rem;">AI Response</h4>
+                        <p style="margin-bottom: 0; color: #ffffff;">{response}</p>
+                        <div style="margin-top: 1rem; color: #ffffff;">
                             Sentiment: <strong>{sentiment}</strong> (Confidence: {round(confidence, 2)})
                         </div>
                     </div>
@@ -210,7 +203,7 @@ with tab3:
 with tab4:
     st.header("📊 Customer Insights")
     
-    #Top 10 Common Queries visualization
+    # Top 10 Common Queries visualisation
     if os.path.exists(FEEDBACK_LOG_PATH):
         try:
             df_feedback = pd.read_csv(FEEDBACK_LOG_PATH)
