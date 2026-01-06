@@ -1,7 +1,8 @@
-Customer Service AI Agent
+# Customer Service AI Agent
 An intelligent customer service agent that combines semantic search, sentiment analysis, and generative AI to handle customer queries autonomously while escalating high-priority cases to human agents.
 Built for a perfume e-commerce context, but the architecture is domain-agnostic.
-What It Does
+
+## What It Does
 
 Answers customer queries using a knowledge base with semantic search
 Detects negative sentiment and escalates frustrated customers automatically
@@ -10,7 +11,7 @@ Captures email addresses for follow-up on escalated cases
 Logs all interactions for analysis and continuous improvement
 
 
-Technical Implementation
+## Technical Implementation
 Semantic Search (RAG)
 Knowledge base questions are embedded using OpenAI's text-embedding-3-small and stored as NumPy arrays. At query time:
 
@@ -39,42 +40,15 @@ Logging
 Three log files track system behaviour:
 FilePurposefeedback_log.csvAll queries with sentiment scores and resolution methodescalation_log.txtHigh-priority cases with contact detailssentiment_log.csvRaw sentiment classification results
 
-Setup
-bash# Clone and install
-git clone <repo-url>
-cd <repo>
-pip install -r requirements.txt
 
-# Set OpenAI API key
-export OPENAI_API_KEY=your_key_here
-
-# Run CLI version
-python agent.py
-
-# Run web interface
-streamlit run streamlit_app.py
-Configuration
-Key thresholds in agent.py:
-pythonEMBEDDING_MODEL = "text-embedding-3-small"
-SIMILARITY_THRESHOLD = 0.7  # KB match threshold
-ESCALATION_THRESHOLD = 0.9  # Sentiment confidence for escalation
-File Structure
-├── agent.py              # Core logic: embedding, search, sentiment, generation
-├── streamlit_app.py      # Web UI
-├── knowledge_base.csv    # Q&A pairs for semantic search
-├── knowledge_embeddings.npy    # Pre-computed embeddings
-├── synthetic_dataset.csv       # Training data reference
-├── feedback_log.csv      # Interaction logs
-├── escalation_log.txt    # Escalated cases
-└── requirements.txt
-Limitations
+## Limitations
 
 Embedding storage uses flat NumPy arrays (works for ~1000 entries, not production scale)
 No incremental index updates; full re-embedding required for KB changes
 Single-turn only; no conversation memory
 Sentiment model optimised for English Twitter data
 
-Future Improvements
+## Future Improvements
 
 Migrate to vector database (Pinecone, Azure AI Search) for scale
 Add conversation context window
