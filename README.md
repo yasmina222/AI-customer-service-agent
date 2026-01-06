@@ -9,29 +9,7 @@ Falls back to a fine-tuned GPT model when knowledge base doesn't have an answer
 Captures email addresses for follow-up on escalated cases
 Logs all interactions for analysis and continuous improvement
 
-Architecture
-User Query
-    │
-    ▼
-┌─────────────────────┐
-│  Sentiment Analysis │  ← CardiffNLP RoBERTa
-│  (negative > 0.9?)  │
-└─────────────────────┘
-    │
-    ├── YES → Escalate, request email
-    │
-    ▼ NO
-┌─────────────────────┐
-│   Semantic Search   │  ← OpenAI text-embedding-3-small
-│   (similarity ≥ 0.7)│     + cosine similarity
-└─────────────────────┘
-    │
-    ├── MATCH → Return KB answer
-    │
-    ▼ NO MATCH
-┌─────────────────────┐
-│  Fine-tuned GPT-3.5 │  ← Fallback generation
-└─────────────────────┘
+
 Technical Implementation
 Semantic Search (RAG)
 Knowledge base questions are embedded using OpenAI's text-embedding-3-small and stored as NumPy arrays. At query time:
@@ -41,9 +19,6 @@ Cosine similarity is calculated against all stored embeddings
 If max similarity ≥ 0.7, the corresponding answer is returned
 Below threshold triggers the fine-tuned model fallback
 
-pythonsimilarities = cosine_similarity([user_embedding], embeddings)[0]
-if np.max(similarities) >= 0.7:
-    return knowledge_base.iloc[np.argmax(similarities)]['answer']
 Sentiment-Based Routing
 Every query passes through sentiment classification before any response logic:
 
@@ -52,6 +27,7 @@ NEGATIVE + confidence ≤ 0.9: Normal flow, but logged
 NEUTRAL/POSITIVE: Standard query handling
 
 The sentiment model (cardiffnlp/twitter-roberta-base-sentiment) outputs three labels mapped to business logic.
+
 Fine-Tuned Model
 A GPT-3.5-turbo model fine-tuned on domain-specific Q&A pairs handles edge cases outside the knowledge base. System prompts adapt based on detected sentiment:
 
@@ -62,6 +38,7 @@ Neutral → Informative tone
 Logging
 Three log files track system behaviour:
 FilePurposefeedback_log.csvAll queries with sentiment scores and resolution methodescalation_log.txtHigh-priority cases with contact detailssentiment_log.csvRaw sentiment classification results
+
 Setup
 bash# Clone and install
 git clone <repo-url>
